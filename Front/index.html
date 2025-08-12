@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Tooplate" />
+    <title>Calculadora</title>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/apexcharts.css" rel="stylesheet" />
+    <link href="css/tooplate-mini-finance.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      #sidebarMenu { width: 200px !important; }
+      .main-wrapper { margin-left: 200px !important; }
+      @media (max-width: 767px) {
+        #sidebarMenu { width: 100% !important; }
+        .main-wrapper { margin-left: 0 !important; }
+      }
+      body { font-size: 1.1rem; line-height: 1.6; }
+      .nav-link, .navbar-brand { font-size: 1.05rem; }
+      h1, h2, h3, h4 { font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <header class="navbar sticky-top flex-md-nowrap">
+      <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi-box"></i>
+          Calculadora Acido Base
+        </a>
+      </div>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </header>
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
+          <div class="position-sticky py-4 px-3 sidebar-sticky">
+            <ul class="nav flex-column h-100">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">
+                  <i class="bi-house-fill me-2"></i> Acido - Base
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="ph.html">
+                  <i class="bi-arrows-collapse me-2"></i> pH
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="informacion.html">
+                  <i class="bi-wallet me-2"></i> Información
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="profile.html">
+                  <i class="bi-person me-2"></i> Acerca de
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+          <div class="title-group mb-3">
+            <h1 class="h2 mb-0">Inicio</h1>
+            <small class="text-muted">Hola, Bienvenido!</small>
+          </div>
+          <div class="container mt-5">
+            <h2>Calculadora de Titulación Ácido-Base</h2>
+            <form id="form-titulacion" class="mt-4">
+              <div class="mb-3">
+                <label for="volumenAcido" class="form-label">Volumen del ácido (mL)</label>
+                <input type="number" class="form-control" id="volumenAcido" required>
+              </div>
+              <div class="mb-3">
+                <label for="concentracionAcido" class="form-label">Concentración del ácido (M)</label>
+                <input type="number" class="form-control" id="concentracionAcido" step="any" required>
+              </div>
+              <div class="mb-3">
+                <label for="volumenBase" class="form-label">Volumen de la base (mL)</label>
+                <input type="number" class="form-control" id="volumenBase" required>
+              </div>
+              <div class="mb-3">
+                <label for="concentracionBase" class="form-label">Concentración de la base (M)</label>
+                <input type="number" class="form-control" id="concentracionBase" step="any" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Calcular</button>
+            </form>
+            <div id="resultado" class="mt-4 d-none">
+              <h4>Resultado</h4>
+              <p><strong>pH inicial:</strong> <span id="phInicial"></span></p>
+              <p><strong>Volumen de equivalencia:</strong> <span id="volumenEquivalente"></span> mL</p>
+              <p><strong>pH final:</strong> <span id="phFinal"></span></p>
+            </div>
+            <div class="mt-5">
+              <h4>Gráfico de titulación</h4>
+              <canvas id="graficoPH" height="100"></canvas>
+            </div>
+          </div>
+          <footer class="site-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-12">
+                  <p class="copyright-text">
+                    Copyright 2048 - Design:
+                    <a rel="sponsored" href="#" target="_blank">GG2</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+    <script>
+      let chartInstance;
+      document.getElementById("form-titulacion").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const payload = {
+          volumenAcido: parseFloat(document.getElementById("volumenAcido").value),
+          concentracionAcido: parseFloat(document.getElementById("concentracionAcido").value),
+          volumenBase: parseFloat(document.getElementById("volumenBase").value),
+          concentracionBase: parseFloat(document.getElementById("concentracionBase").value)
+        };
+        try {
+          const response = await fetch("https://api.gg2.cl/api/ph/titulacion/calcular", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          if (!response.ok) throw new Error("Respuesta no válida del servidor");
+          const result = await response.json();
+          document.getElementById("phInicial").textContent = result.phInicial;
+          document.getElementById("volumenEquivalente").textContent = result.volumenEquivalente;
+          document.getElementById("phFinal").textContent = result.phFinal;
+          document.getElementById("resultado").classList.remove("d-none");
+          const labels = result.grafico.map(p => p.volumen);
+          const values = result.grafico.map(p => p.ph);
+          if (chartInstance) {
+            chartInstance.destroy();
+          }
+          chartInstance = new Chart(document.getElementById("graficoPH"), {
+            type: "line",
+            data: {
+              labels: labels,
+              datasets: [{
+                label: "pH",
+                data: values,
+                borderColor: "blue",
+                fill: false,
+                tension: 0.1,
+                pointRadius: 0
+              }]
+            },
+            options: {
+              scales: {
+                x: { title: { display: true, text: "Volumen de base (mL)" } },
+                y: { title: { display: true, text: "pH" }, min: 0, max: 14 }
+              }
+            }
+          });
+        } catch (err) {
+          console.error("Error al calcular titulación:", err.message);
+          alert("Ocurrió un error al calcular la titulación. Revisa la consola.");
+        }
+      });
+    </script>
+  </body>
+</html>

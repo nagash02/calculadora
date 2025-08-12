@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="Tooplate" />
+
+    <title>Calculadora</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+
+    <link href="css/apexcharts.css" rel="stylesheet" />
+
+    <link href="css/tooplate-mini-finance.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+  /* Reducir ancho del sidebar */
+  #sidebarMenu {
+    width: 200px !important;
+  }
+
+  /* Asegurar que el contenido principal se ajuste correctamente */
+  .main-wrapper {
+    margin-left: 200px !important;
+  }
+
+  @media (max-width: 767px) {
+    #sidebarMenu {
+      width: 100% !important;
+    }
+    .main-wrapper {
+      margin-left: 0 !important;
+    }
+  }
+</style>
+  </head>
+
+  <body>
+     <style>
+  body {
+    font-size: 1.1rem; /* Puedes ajustar a 1.2rem si quieres más grande */
+    line-height: 1.6;
+  }
+
+  .nav-link,
+  .navbar-brand {
+    font-size: 1.05rem;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 600;
+  }
+</style>
+    <header class="navbar sticky-top flex-md-nowrap">
+      <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi-box"></i>
+          Calculadora Acido Base
+        </a>
+      </div>
+
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-3 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky py-4 px-3 sidebar-sticky">
+            <ul class="nav flex-column h-100">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="index.html"
+                >
+                  <i class="bi-house-fill me-2"></i>
+                  Acido - Base
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="ph.html">
+                  <i class="bi-arrows-collapse me-2"></i>
+                  pH
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="informacion.html">
+                  <i class="bi-wallet me-2"></i>
+                  Información
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" href="profile.html">
+                  <i class="bi-person me-2"></i>
+                  Acerca de
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main
+          class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start"
+        >
+         <section class="py-5 bg-light">
+  <div class="container text-center">
+    <img src="images/images.jpeg" alt="Universidad Mayor" class="mb-4" style="max-height: 100px;" />
+    <h2 class="mb-3">Taller Práctico – Química</h2>
+    <p class="lead">
+      Esta calculadora ha sido desarrollada como parte del taller práctico de la asignatura de Química,
+      aplicando conceptos de pH, titulaciones ácido-base y comportamiento de soluciones.
+    </p>
+
+    <div class="mt-4">
+      <h5>Integrantes del equipo:</h5>
+      <ul class="list-group list-group-flush d-inline-block text-start">
+        <li class="list-group-item">Cristian Rodrigo González Garcés</li>
+        <li class="list-group-item">Nombre 2</li>
+        <li class="list-group-item">Nombre 3</li>
+        <li class="list-group-item">Nombre 4</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+           </main>
+
+          <footer class="site-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-12">
+                  <p class="copyright-text">
+                    Copyright 2048 - Design:
+                    <a rel="sponsored" href="" target="_blank">GG2</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+  
+
+  </body>
+</html>

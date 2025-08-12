@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="Tooplate" />
+
+    <title>Calculadora</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+
+    <link href="css/apexcharts.css" rel="stylesheet" />
+
+    <link href="css/tooplate-mini-finance.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+  /* Reducir ancho del sidebar */
+  #sidebarMenu {
+    width: 200px !important;
+  }
+
+  /* Asegurar que el contenido principal se ajuste correctamente */
+  .main-wrapper {
+    margin-left: 200px !important;
+  }
+
+  @media (max-width: 767px) {
+    #sidebarMenu {
+      width: 100% !important;
+    }
+    .main-wrapper {
+      margin-left: 0 !important;
+    }
+  }
+</style>
+  </head>
+
+  <body>
+     <style>
+  body {
+    font-size: 1.1rem; /* Puedes ajustar a 1.2rem si quieres más grande */
+    line-height: 1.6;
+  }
+
+  .nav-link,
+  .navbar-brand {
+    font-size: 1.05rem;
+  }
+
+  h1, h2, h3, h4 {
+    font-weight: 600;
+  }
+</style>
+    <header class="navbar sticky-top flex-md-nowrap">
+      <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
+        <a class="navbar-brand" href="index.html">
+          <i class="bi-box"></i>
+          Calculadora Acido Base
+        </a>
+      </div>
+
+      <button
+        class="navbar-toggler position-absolute d-md-none collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#sidebarMenu"
+        aria-controls="sidebarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav
+          id="sidebarMenu"
+          class="col-md-3 col-lg-3 d-md-block sidebar collapse"
+        >
+          <div class="position-sticky py-4 px-3 sidebar-sticky">
+            <ul class="nav flex-column h-100">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="index.html"
+                >
+                  <i class="bi-house-fill me-2"></i>
+                  Acido - Base
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="ph.html">
+                  <i class="bi-arrows-collapse me-2"></i>
+                  pH
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="informacion.html">
+                  <i class="bi-wallet me-2"></i>
+                  Información
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="profile.html">
+                  <i class="bi-person me-2"></i>
+                  Acerca de
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <main
+          class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start"
+        >
+          
+            <div class="container my-5">
+  <h1 class="mb-4">¿Cómo calcular las titulaciones?</h1>
+
+  <p>Cuando un ácido o una base se disuelven en agua, sus iones <strong>H<sup>+</sup></strong> y <strong>OH<sup>−</sup></strong> respectivamente se disocian, desplazando el equilibrio natural de autoionización del agua (<strong>2H<sub>2</sub>O ⇌ H<sub>3</sub>O<sup>+</sup> + OH<sup>−</sup></strong>), haciendo que la solución sea más ácida o más básica. A <strong>pH 7</strong>, la concentración de iones H<sub>3</sub>O<sup>+</sup> y OH<sup>−</sup> es de relación <strong>1:1</strong> (punto de equivalencia).</p>
+
+  
+
+  <h2 class="mt-5">¿Qué es una titulación?</h2>
+  <p>La titulación, o análisis volumétrico, implica tener una solución de volumen conocido pero molaridad desconocida (analito), y añadirle un indicador (como fenolftaleína) que cambia de color al alcanzar la relación 1:1 (según la curva de titulación). Al añadir un ácido o base de molaridad conocida (valorante) y medir cuánto se requiere para cambiar el color, se puede calcular la molaridad del analito con esta fórmula:</p>
+
+  <div class="bg-white border rounded p-3 my-3">
+    <strong>n<sub>H<sup>+</sup></sub> × M<sub>a</sub> × V<sub>a</sub> = n<sub>OH<sup>−</sup></sub> × M<sub>b</sub> × V<sub>b</sub></strong>
+    <ul class="mt-2">
+      <li><strong>n<sub>H<sup>+</sup></sub></strong>: Número de iones H<sup>+</sup> aportados por el ácido</li>
+      <li><strong>M<sub>a</sub></strong>: Molaridad del ácido</li>
+      <li><strong>V<sub>a</sub></strong>: Volumen del ácido</li>
+      <li><strong>n<sub>OH<sup>−</sup></sub></strong>: Número de iones OH<sup>−</sup> aportados por la base</li>
+      <li><strong>M<sub>b</sub></strong>: Molaridad de la base</li>
+      <li><strong>V<sub>b</sub></strong>: Volumen de la base</li>
+    </ul>
+  </div>
+
+  <h2>Método de titulación ácido-base</h2>
+  <ol>
+    <li>Llena una bureta con la solución valorante. Retira el embudo al terminar.</li>
+    <li>Mide el volumen inicial de la bureta.</li>
+    <li>Coloca una cantidad medida de analito en un matraz Erlenmeyer con el indicador.</li>
+    <li>Añade el valorante lentamente, agitando. Al acercarte al punto de cambio de color, hazlo gota a gota.</li>
+    <li>Cuando el color cambie permanentemente, detén la adición.</li>
+    <li>Anota el volumen final en la bureta. Calcula el volumen usado y usa la fórmula anterior.</li>
+    <li>Desecha los productos químicos de forma segura.</li>
+  </ol>
+
+  <h2>Curvas de titulación</h2>
+  <p>Representan el pH frente al volumen del valorante. Las curvas varían según si se trata de un ácido/base débil o fuerte. Por ejemplo:</p>
+  <ul>
+    <li>Ácido fuerte + base fuerte: curva pronunciada cerca del punto de equivalencia. Puedes usar indicadores como fenolftaleína o azul de bromotimol.</li>
+    <li>Ácido fuerte + base débil: curva menos abrupta, punto de equivalencia a pH &lt; 7. Usa indicadores como naranja de metilo.</li>
+    <li>Ácido débil + base débil: curva muy irregular. Mejor usar medidor de pH.</li>
+  </ul>
+
+  <h2>Historia y usos</h2>
+  <p>El término titulación proviene del francés "tiltre", que significaba proporción de oro/plata. Gay-Lussac fue pionero en usarlo para análisis químicos. La técnica se perfeccionó con la bureta moderna en 1855 gracias a Mohr.</p>
+
+  <p>Actualmente, la titulación tiene múltiples aplicaciones:</p>
+  <ul>
+    <li>Determinar concentración de sustancias desconocidas en campo.</li>
+    <li>Neutralizar aceite vegetal usado para biodiésel.</li>
+    <li>Medir acidez de lluvia ácida para control ambiental.</li>
+  </ul>
+
+
+  <h2>Tablas</h2>
+
+<div class="container my-5">
+  <h2 class="mb-4">Ácidos comunes</h2>
+  <div class="table-responsive mb-5">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Fórmula</th>
+          <th>Nombre</th>
+          <th>Fuerza</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>HCl</td><td>Ácido clorhídrico</td><td>Fuerte</td></tr>
+        <tr><td>HNO₃</td><td>Ácido nítrico</td><td>Fuerte</td></tr>
+        <tr><td>H₂SO₄</td><td>Ácido sulfúrico</td><td>Fuerte</td></tr>
+        <tr><td>HBr</td><td>Ácido bromhídrico</td><td>Fuerte</td></tr>
+        <tr><td>HI</td><td>Ácido yodhídrico</td><td>Fuerte</td></tr>
+        <tr><td>HClO₄</td><td>Ácido perclórico</td><td>Fuerte</td></tr>
+        <tr><td>HCOOH</td><td>Ácido fórmico</td><td>Débil</td></tr>
+        <tr><td>CH₃COOH</td><td>Ácido acético</td><td>Débil</td></tr>
+        <tr><td>C₆H₅COOH</td><td>Ácido benzoico</td><td>Débil</td></tr>
+        <tr><td>HF</td><td>Ácido fluorhídrico</td><td>Débil</td></tr>
+        <tr><td>HNO₂</td><td>Ácido nitroso</td><td>Débil</td></tr>
+        <tr><td>H₃PO₄</td><td>Ácido fosfórico</td><td>Débil</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="mb-4">Bases comunes</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Fórmula</th>
+          <th>Nombre</th>
+          <th>Fuerza</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>NaOH</td><td>Hidróxido sódico</td><td>Fuerte</td></tr>
+        <tr><td>KOH</td><td>Hidróxido de potasio</td><td>Fuerte</td></tr>
+        <tr><td>Ca(OH)₂</td><td>Hidróxido de calcio</td><td>Fuerte</td></tr>
+        <tr><td>Ba(OH)₂</td><td>Hidróxido de bario</td><td>Fuerte</td></tr>
+        <tr><td>NH₃</td><td>Amoníaco</td><td>Débil</td></tr>
+        <tr><td>CH₃NH₂</td><td>Metilamina</td><td>Débil</td></tr>
+        <tr><td>C₅H₅N</td><td>Piridina</td><td>Débil</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+  <h2>Preguntas frecuentes</h2>
+  <h5>¿Qué es una titulación?</h5>
+  <p>Es un método para determinar la concentración de una sustancia desconocida mediante su reacción con otra de concentración conocida.</p>
+
+  <h5>¿Qué es el punto de equivalencia?</h5>
+  <p>Es el punto donde el valorante ha neutralizado completamente al analito. En una curva, se observa como un cambio abrupto de pH.</p>
+
+  <h5>Ejemplo: ¿Cuál es la concentración de 0.15 mL de HCl si se necesitan 20.7 mL de NaOH 0.5 M para neutralizarlo?</h5>
+  <p>MA = (0.500 × 20.7) / 0.15 = 0.690 M</p>
+
+  <h5>Ejemplo: ¿Cuál es el pH de 49 mL de HCl 0.1 M + 50 mL de HCl 0.1 M?</h5>
+  <p>pH = 3.00. Se calcula la concentración de H<sup>+</sup> restante y se aplica pH = -log[H<sup>+</sup>].</p>
+</div>
+         
+<section class="container my-5">
+  <div class="bg-white p-4 rounded shadow-sm">
+    <h2 class="mb-4">La escala de pH</h2>
+    <p>La escala de pH es una escala numérica utilizada para definir el grado de acidez o basicidad de una solución acuosa. Normalmente, oscila entre 0 y 14, pero puede ir más allá si la solución es suficientemente ácida o básica. La relación entre el pH y los iones de hidrógeno se expresa así:</p>
+
+    <p class="text-center fw-bold">pH = -log([H<sup>+</sup>])</p>
+
+    <p>Una solución es:</p>
+    <ul>
+      <li>Ácida si pH &lt; 7</li>
+      <li>Neutra si pH = 7</li>
+      <li>Básica si pH &gt; 7</li>
+    </ul>
+
+    <p>El pH del cuerpo humano es casi neutro. La sangre tiene un pH cercano a 7.4, mientras que el estómago puede tener un pH tan bajo como 1.</p>
+
+    <h4>Indicadores de pH</h4>
+    <p>El método común es el papel tornasol, que cambia de color según el pH. Estos colores inspiran escalas visuales utilizadas frecuentemente en laboratorios.</p>
+
+    <h4>Definiciones de ácido y base</h4>
+    <ul>
+      <li><strong>Arrhenius:</strong> Ácido dona H<sup>+</sup>, base dona OH<sup>-</sup>.</li>
+      <li><strong>Brønsted-Lowry:</strong> Ácido dona protones, base los acepta.</li>
+      <li><strong>Lewis:</strong> Ácido acepta pares de electrones, base los dona.</li>
+    </ul>
+
+    <h4>Constantes de ionización</h4>
+    <p>Para un ácido: <strong>HA ⇌ H<sup>+</sup> + A<sup>-</sup></strong></p>
+    <p class="text-center fw-bold">Ka = [H<sup>+</sup>][A<sup>-</sup>] / [HA]</p>
+
+    <p>Para una base: <strong>BOH ⇌ OH<sup>-</sup> + B<sup>+</sup></strong></p>
+    <p class="text-center fw-bold">Kb = [OH<sup>-</sup>][B<sup>+</sup>] / [BOH]</p>
+
+    <h4>Fórmulas de cálculo</h4>
+    <ul>
+      <li><strong>pH:</strong> pH = -log([H<sup>+</sup>])</li>
+      <li><strong>Concentración de H<sup>+</sup>:</strong> [H<sup>+</sup>] = 10<sup>-pH</sup></li>
+      <li><strong>pOH:</strong> pOH = -log([OH<sup>-</sup>])</li>
+      <li><strong>Concentración de OH<sup>-</sup>:</strong> [OH<sup>-</sup>] = 10<sup>-pOH</sup></li>
+      <li><strong>Relación:</strong> pH + pOH = 14</li>
+    </ul>
+
+    <h4>Ejemplo práctico</h4>
+    <p>Para una solución con [H<sup>+</sup>] = 0.0001 mol/L:</p>
+    <p class="text-center fw-bold">pH = -log(0.0001) = 4</p>
+    <p>Entonces:</p>
+    <ul>
+      <li>pOH = 14 - 4 = 10</li>
+      <li>[OH<sup>-</sup>] = 10<sup>-10</sup> = 0.0000000001 mol/L</li>
+    </ul>
+
+    <p>Estos valores pueden calcularse automáticamente con herramientas como la calculadora de pH.</p>
+
+    <p>Por ejemplo, para el ácido fórmico (HCOOH) con Ka = 0.00018 y concentración 0.1 mol/L:</p>
+    <p>La ecuación es:</p>
+    <p class="text-center fw-bold">Ka = x<sup>2</sup> / (c - x)</p>
+    <p>Resolviendo: x = 0.004154 → pH = -log(0.004154) = 2.38</p>
+  </div>
+</section>
+
+          <footer class="site-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 col-12">
+                  <p class="copyright-text">
+                    Copyright 2048 - Design:
+                    <a rel="sponsored" href="" target="_blank">GG2</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+  
+
+  </body>
+</html>
